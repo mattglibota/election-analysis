@@ -46,33 +46,47 @@ with open(file_to_load) as election_data:
 
         candidate_votes[candidate_name] += 1
 
-#loop through candidates to calculate metrics
-for name in candidate_votes:
-
-    #calculate vote percentage of each name
-    votes = candidate_votes[name]
-    vote_percentage = int(votes) / int(total_votes) *100
-    print(f"{name}: {vote_percentage:.1f}% ({votes:,})\n")
-
-    #determine winning vote count and candidate
-    #is current votes and percentage greater than current winner
-    if (votes > winning_count) and (vote_percentage > winning_percentage):
-        winning_count = votes
-        winning_percentage = vote_percentage
-        winning_candidate = name
-
-#create winning candidate statement
-winning_candidate_summary = (
-    f"--------------------------\n"
-    f"Winner: {winning_candidate}\n"
-    f"Winning Vote Count: {winning_count:,}\n"
-    f"Winning Percentage: {winning_percentage:.1f}%\n"
-    f"--------------------------\n")
-print(winning_candidate_summary)
-
-
 #using open function with "w" mode, we write data
 with open(file_to_save,"w") as txt_file:
-    txt_file.write("Counties in the Election\n------------------\n")
-    txt_file.write("Arapahoe\nDenver\nJefferson")
+    election_results =(
+        "Election Results\n"
+        "-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        "-------------------------\n")
+
+    #write election results to terminal and txt file
+    print(election_results, end="")
+    txt_file.write(election_results)
+
+    #loop through candidates to calculate metrics
+    for name in candidate_votes:
+
+        #calculate vote percentage of each name
+        votes = candidate_votes[name]
+        vote_percentage = int(votes) / int(total_votes) *100
+        candidate_results = (f"{name}: {vote_percentage:.1f}% ({votes:,})\n")
+
+        #write candidate results to terminal and txt file
+        print(candidate_results)
+        txt_file.write(candidate_results)
+
+        #determine winning vote count and candidate
+        #is current votes and percentage greater than current winner
+        if (votes > winning_count) and (vote_percentage > winning_percentage):
+            winning_count = votes
+            winning_percentage = vote_percentage
+            winning_candidate = name
+
+    #create winning candidate statement
+    winning_candidate_summary = (
+        f"--------------------------\n"
+        f"Winner: {winning_candidate}\n"
+        f"Winning Vote Count: {winning_count:,}\n"
+        f"Winning Percentage: {winning_percentage:.1f}%\n"
+        f"--------------------------\n")
+
+    #write winning candidate to terminal and txt file
+    print(winning_candidate_summary)
+    txt_file.write(winning_candidate_summary)
+
 
