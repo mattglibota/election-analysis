@@ -14,19 +14,31 @@ A Colorado Board of Elections employee has given me the following tasks to compl
 
 ## Summary
 The analysis of the election shows that:
-There were "x" votes cast
-The candidate were:
-  -
-  -
-  -
-The candidate results were:
-  -
-  -
-  -
-The winner of the election was:
-  -
+
+There were 369,711 votes cast
+
+The candidates and their results were
+* Charles Casper Stockham: 23.0% (85,213)
+* Diana DeGette: 73.8% (272,892)
+* Raymon Anthony Doane: 3.1% (11,606)
+
+The winner of the election was
+* Diana Degette
 
 ## Challenge Overview
+A Colorado Board of Elections employee has given me the following tasks to complete the election audit of a recent local congressional election.
+  1. Calculate the total number of votes cast.
+  2. Get a complete list of counties which received votes.
+  3. Calculate the total number of votes in each county.
+  4. Calculate the percentage of votes in each county
+  5. Determine the largest county turnout.
 
+## Challenge Summary
+The counties and their results were:
+* Jefferson: 10.5% (38,855)
+* Denver: 82.8% (306,055)
+* Arapahoe: 6.7% (24,801)
 
-## Challenger Summary
+The largest county turnout was
+* Denver
+
